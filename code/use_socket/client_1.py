@@ -13,7 +13,7 @@ SERVER_ADDR = (SERVER_IP, SERVER_PORT)
 
 
 data = {
-   'client 2':'hi',
+   'client 1':'hi',
    2:33,
    }
 data_string = json.dumps(data)
@@ -36,9 +36,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
     while True:
 
         data = {
-            'client 2':idx,
+            'client 1':idx,
             }
-        data_string = json.dumps(data)
+        data_string = json.dumps(data) 
         client_socket.send(data_string.encode())  # 서버에 메시지 전송
         # msg = client_socket.recv(SIZE)  # 서버로부터 응답받은 메시지 반환
         print("resp from server : {}".format(idx))  # 서버로부터 응답받은 메시지 출력
